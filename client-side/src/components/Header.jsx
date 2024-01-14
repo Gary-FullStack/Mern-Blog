@@ -13,7 +13,7 @@ export default function Header() {
         className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"
       >
         <span className="px-2 py-1 bg-gradient-to-r from-indigo-500 via-red-700 to-orange-600 rounded-lg text-white">
-          Recon&apos;s Rants
+          Gary&apos;s Rants
         </span>
       </Link>
       <form>
