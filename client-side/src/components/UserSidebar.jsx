@@ -24,6 +24,7 @@ export default function UserSidebar() {
                 icon={HiUser}
                 label={"User"}
                 labelColor="dark"
+                as="div"
             >
                 Profile
             </Sidebar.Item>
@@ -42,3 +43,4 @@ export default function UserSidebar() {
     </Sidebar>
   );
 }
+ 
