@@ -42,5 +42,5 @@ export default function UserSidebar() {
       </Sidebar.Items>
     </Sidebar>
   );
-}
+} 
  
