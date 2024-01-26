@@ -13,10 +13,11 @@ import "react-circular-progressbar/dist/styles.css";
 import { useDispatch } from "react-redux";
 import { updateStart, updateSuccess, updateFailure, deleteUserStart, deleteUserSuccess, deleteUserFailure, signoutSuccess } from "../redux/user/userSlice";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
+import { Link } from "react-router-dom";
 
 
 export default function UserProfile() {
-  const { currentUser, error} = useSelector((state) => state.user);
+  const { currentUser, error, loading} = useSelector((state) => state.user);
   const [imageFile, setImageFile] = useState(null);
   const [imageFileUrl, setImageFileUrl] = useState(null);
   const [imageFileUploadProgress, setImageFileUploadProgress] = useState(null);
@@ -219,9 +220,19 @@ export default function UserProfile() {
           onChange={handleChange}
         />
 
-        <Button type="submit" gradientDuoTone="purpleToBlue" outline>
-          Update Profile
+        <Button type="submit" gradientDuoTone="purpleToBlue" outline disabled={loading || imageFileUploading}>
+          { loading ? 'Loading...' : 'Update'}
         </Button>
+
+        {
+          currentUser.isAdmin && (
+            <Link to={'/create-post'}>
+              <Button type="button" gradientDuoTone="purpleToPink" outline className="w-full mt-10">
+                Create new Post
+              </Button>
+            </Link>            
+          )
+        }
 
       </form>
 
@@ -265,7 +276,7 @@ export default function UserProfile() {
                 Yes, I'm sure
               </Button>
               <Button color='gray' onClick={() => setShowModal(false)}>
-                No, cancel
+                Hell no, cancel
               </Button>
             </div>
           </div>
