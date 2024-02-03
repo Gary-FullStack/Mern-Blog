@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { FaThumbsUp } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import { Button, Textarea } from 'flowbite-react';
+// import { set } from 'mongoose';
 
 
 export default function Comment({ comment, onLike, onEdit, onDelete }) {
@@ -10,6 +11,7 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editedContent, setEditedContent] = useState(comment.content);
   const { currentUser } = useSelector((state) => state.user);
+
   useEffect(() => {
     const getUser = async () => {
       try {
@@ -49,6 +51,8 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
       console.log(error.message);
     }
   };
+
+
   return (
     <div className='flex p-4 border-b dark:border-gray-600 text-sm'>
       <div className='flex-shrink-0 mr-3'>
@@ -91,7 +95,7 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
                 onClick={() => setIsEditing(false)}
               >
                 Cancel
-              </Button>
+              </Button> 
             </div>
           </>
         ) : (
