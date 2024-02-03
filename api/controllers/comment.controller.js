@@ -98,6 +98,7 @@ export const deleteComment = async (req, res, next) => {
   }
 };
 
+// this displays ALL comments to the admin
 export const getcomments = async (req, res, next) => {
   if (!req.user.isAdmin)
     return next(errorHandler(403, 'You are not allowed to get all comments'));
